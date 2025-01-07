@@ -132,9 +132,7 @@ export function UseLunatic(props: PropsWithChildren<OrchestratorProps>) {
 		previousPageTag !== pageTag;
 
 	const handleGoNext = useCallback(() => {
-		if (isLastPage) {
-			saveChange({ pageTag, getData });
-		} else {
+		if (!isLastPage) {
 			shouldSync.current = true;
 			goNextPage?.();
 		}
